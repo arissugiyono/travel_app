@@ -1,3 +1,4 @@
+import 'package:airplane_app/ui/widgets/custom_button.dart';
 import 'package:airplane_app/ui/widgets/interests_item.dart';
 import 'package:airplane_app/ui/widgets/photo_item.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +39,7 @@ class detailPage extends StatelessWidget {
               width: double.infinity,
               height: 24,
               margin: EdgeInsets.only(
-                top: 50,
+                top: 40,
               ),
               decoration: BoxDecoration(
                   image: DecorationImage(
@@ -157,9 +158,71 @@ class detailPage extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
+                  Row(
+                    children: [
+                      interestsItem(
+                        interestsName: 'Kids Park',
+                      ),
+                      interestsItem(
+                        interestsName: 'Honor Bridge',
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      interestsItem(
+                        interestsName: 'City Museum',
+                      ),
+                      interestsItem(
+                        interestsName: ' Central Mall ',
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
+            // NOTES: PRICE & BOOKING BUTTON
+            Container(
+              margin: EdgeInsets.only(
+                top: 30,
+                bottom: 30,
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'IDR 2.500.000',
+                          style: blackTextStyle.copyWith(
+                              fontSize: 18, fontWeight: medium),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          'per orang',
+                          style: greyTextStyle.copyWith(
+                            fontSize: 14,
+                            fontWeight: light,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  customButton(
+                    width: 170,
+                    title: 'Book Now',
+                    onPress: () =>
+                        Navigator.popAndPushNamed(context, '/choose-seat-page'),
+                  )
+                ],
+              ),
+            )
           ],
         ),
       );
@@ -167,11 +230,13 @@ class detailPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: kBackgroundColor,
-      body: Stack(
-        children: [
-          backgroundImage(),
-          content(),
-        ],
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            backgroundImage(),
+            content(),
+          ],
+        ),
       ),
     );
   }
