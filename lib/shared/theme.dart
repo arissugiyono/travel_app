@@ -10,6 +10,9 @@ Color kRedColor = Color(0xffEB70A5);
 Color kBackgroundColor = Color(0xffFAFAFA);
 Color kInactiveColor = Color(0xffDBD7EC);
 Color kTransparentColor = Colors.transparent;
+Color kColorUnabaliable = Color(0xffEBECF1);
+Color kColorAvaliable = Color(0xffE0D9FF);
+Color kColorSelected = Color(0xff5C40CC);
 
 TextStyle blackTextStyle = GoogleFonts.poppins(color: kBlackColor);
 TextStyle whiteTextStyle = GoogleFonts.poppins(color: kWhiteColor);
@@ -28,3 +31,7 @@ FontWeight black = FontWeight.w900;
 
 double defaultMargin = 24.0;
 double defaultRadius = 17.0;
+
+String kImageAvaliable = 'assets/image_available.png';
+String kImageSelected = 'assets/image_selected.png';
+String kImageUnavailable = 'assets/image_unavailable.png';
