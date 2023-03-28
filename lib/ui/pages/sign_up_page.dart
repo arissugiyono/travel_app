@@ -48,7 +48,7 @@ class SignUpPage extends StatelessWidget {
 
       Widget signUpButton() {
         return Container(
-          child: customButton(
+          child: CustomButton(
             title: 'Sign Up',
             onPress: () {
               Navigator.pushNamed(context, '/bonus');

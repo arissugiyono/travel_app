@@ -214,7 +214,7 @@ class detailPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  customButton(
+                  CustomButton(
                     width: 170,
                     title: 'Book Now',
                     onPress: () =>

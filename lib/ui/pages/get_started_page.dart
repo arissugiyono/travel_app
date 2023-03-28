@@ -39,7 +39,7 @@ class GetStaredPage extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                customButton(
+                CustomButton(
                   title: 'Get Started',
                   onPress: () {
                     Navigator.pushNamed(context, '/sign-up');
