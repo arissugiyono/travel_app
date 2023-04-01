@@ -21,13 +21,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       //home: SplashPage(),
       routes: {
-        '/': (context) => SplashPage(),
-        '/get-started': (context) => GetStaredPage(),
-        '/sign-up': (context) => SignUpPage(),
-        '/bonus': (context) => BonusPage(),
-        '/main-page': (context) => mainPage(),
-        '/choose-seat-page': (context) => chooseSeatPage(),
-        '/checkout-page': (context) => checkoutPage(),
+        '/': (context) => const SplashPage(),
+        '/get-started': (context) => const GetStaredPage(),
+        '/sign-up': (context) => const SignUpPage(),
+        '/bonus': (context) => const BonusPage(),
+        '/main-page': (context) => const mainPage(),
+        '/choose-seat-page': (context) => const chooseSeatPage(),
+        '/checkout-page': (context) => const checkoutPage(),
 
       },
     );
