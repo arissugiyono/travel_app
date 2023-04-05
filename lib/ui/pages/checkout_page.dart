@@ -309,6 +309,26 @@ class checkoutPage extends StatelessWidget {
       );
     }
 
+    Widget tacButton() {
+      return Container(
+        margin: EdgeInsets.only(
+          top: 30,
+          bottom: 30,
+        ),
+        child: TextButton(
+            onPressed: () {},
+            child: Text(
+              'Terms and Conditions',
+              style: greyTextStyle.copyWith(
+                fontSize: 16,
+                fontWeight: light,
+                decoration: TextDecoration.underline,
+              ),
+            )),
+      );
+    }
+
+
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: ListView(
@@ -318,6 +338,7 @@ class checkoutPage extends StatelessWidget {
           itemDetail(),
           payementDetail(),
           payNowButton(),
+          tacButton(),
         ],
       ),
     );
