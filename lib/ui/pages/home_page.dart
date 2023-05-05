@@ -1,54 +1,64 @@
+import 'package:airplane_app/cubit/auth_cubit.dart';
 import 'package:airplane_app/ui/widgets/destination_card.dart';
 import 'package:airplane_app/ui/widgets/destination_tile.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:airplane_app/shared/theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class homePage extends StatelessWidget {
   const homePage({super.key});
 
   Widget header() {
-    return Container(
-      margin: EdgeInsets.only(
-        top: 30,
-        left: defaultMargin,
-        right: defaultMargin,
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+    return BlocBuilder<AuthCubit, AuthState>(
+      builder: (context, state) {
+        if (state is authSucess) {
+          return Container(
+            margin: EdgeInsets.only(
+              top: 30,
+              left: defaultMargin,
+              right: defaultMargin,
+            ),
+            child: Row(
               children: [
-                Text(
-                  'Hallo, \nAris Sugiyono',
-                  style: blackTextStyle.copyWith(
-                    fontSize: 24,
-                    fontWeight: semiBold,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Hallo, \n${state.user.name}',
+                        style: blackTextStyle.copyWith(
+                          fontSize: 24,
+                          fontWeight: semiBold,
+                        ),
+                      ),
+                      Text(
+                        'Where to fly today?',
+                        style: greyTextStyle.copyWith(
+                          fontSize: 16,
+                          fontWeight: light,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                Text(
-                  'Where to fly today?',
-                  style: greyTextStyle.copyWith(
-                    fontSize: 16,
-                    fontWeight: light,
+                Container(
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/image_profile.png'),
+                    ),
+                    shape: BoxShape.circle,
                   ),
                 ),
               ],
             ),
-          ),
-          Container(
-            height: 50,
-            width: 50,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/image_profile.png'),
-              ),
-              shape: BoxShape.circle,
-            ),
-          ),
-        ],
-      ),
+          );
+        } else {
+          return SizedBox();
+        }
+      },
     );
   }
 

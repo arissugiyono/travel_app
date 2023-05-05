@@ -1,10 +1,17 @@
+import 'package:airplane_app/cubit/auth_cubit.dart';
 import 'package:airplane_app/shared/theme.dart';
 import 'package:airplane_app/ui/widgets/custom_button.dart';
 import 'package:airplane_app/ui/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUpPage extends StatelessWidget {
-  const SignUpPage({super.key});
+  SignUpPage({super.key});
+  final TextEditingController nameController = TextEditingController(text: '');
+  final TextEditingController emailController = TextEditingController(text: '');
+  final TextEditingController passwordController =
+      TextEditingController(text: '');
+  final TextEditingController hobbyController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +31,19 @@ class SignUpPage extends StatelessWidget {
     Widget inputSection() {
       Widget nameInput() {
         return customTextFormField(
-            title: 'Full Name', hintText: 'your full name');
+          title: 'Full Name',
+          hintText: 'your full name',
+          controller: nameController,
+        );
       }
+
+      ;
 
       Widget emailInput() {
         return customTextFormField(
           title: 'Email Address',
           hintText: 'your email',
+          controller: emailController,
         );
       }
 
@@ -39,22 +52,54 @@ class SignUpPage extends StatelessWidget {
           title: 'Password',
           hintText: 'your password',
           obscureText: true,
+          controller: passwordController,
         );
       }
 
       Widget hobbyInput() {
-        return customTextFormField(title: 'Hobby', hintText: 'your hobby');
+        return customTextFormField(
+          title: 'Hobby',
+          hintText: 'your hobby',
+          controller: hobbyController,
+        );
       }
 
       Widget signUpButton() {
         return Container(
-          child: CustomButton(
-            title: 'Sign Up',
-            onPress: () {
-              Navigator.pushNamed(context, '/bonus');
+          child: BlocConsumer<AuthCubit, AuthState>(
+            listener: (context, state) {
+              if (state is authSucess) {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, '/bonus', (route) => false);
+              } else if (state is authFailed) {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  backgroundColor: Colors.red,
+                  content: Text(
+                    'error user sudah terdaftar',
+                    textAlign: TextAlign.center,
+                  ),
+                ));
+              }
             },
-            width: 287,
-            margin: EdgeInsets.only(top: 10),
+            builder: (context, state) {
+              if (state is authLoading) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              return CustomButton(
+                title: 'Sign Up',
+                onPress: () {
+                  context.read<AuthCubit>().signUp(
+                      email: emailController.text,
+                      password: passwordController.text,
+                      name: nameController.text,
+                      hooby: hobbyController.text);
+                },
+                width: 287,
+                margin: EdgeInsets.only(top: 10),
+              );
+            },
           ),
         );
       }
