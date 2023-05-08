@@ -46,7 +46,7 @@ class mainPage extends StatelessWidget {
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
+          children: const [
             customButtonNavigationItem(
               index: 0,
               imageUrl: 'assets/icon_home.png',

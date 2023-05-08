@@ -13,6 +13,7 @@ class homePage extends StatelessWidget {
     return BlocBuilder<AuthCubit, AuthState>(
       builder: (context, state) {
         if (state is authSucess) {
+          // kondisi jika state sukses makan mereturn di bawah ini
           return Container(
             margin: EdgeInsets.only(
               top: 30,
@@ -26,7 +27,7 @@ class homePage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Hallo, \n${state.user.name}',
+                        'Hallo, \n ${state.user.name}', // merubah nama user sesuai dengan user yg login
                         style: blackTextStyle.copyWith(
                           fontSize: 24,
                           fontWeight: semiBold,
@@ -45,7 +46,7 @@ class homePage extends StatelessWidget {
                 Container(
                   height: 50,
                   width: 50,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage('assets/image_profile.png'),
                     ),
@@ -123,7 +124,7 @@ class homePage extends StatelessWidget {
             fontWeight: semiBold,
           ),
         ),
-        SingleChildScrollView(
+        const SingleChildScrollView(
           child: destinationTile(
             name: 'Danau Beratan',
             city: 'Singajara',
@@ -131,25 +132,25 @@ class homePage extends StatelessWidget {
             rating: 4.5,
           ),
         ),
-        destinationTile(
+        const destinationTile(
           name: 'Sydney Opera',
           city: 'Australia',
           imageUrl: 'assets/image_destination7.png',
           rating: 4.7,
         ),
-        destinationTile(
+        const destinationTile(
           name: 'Roma',
           city: 'Italy',
           imageUrl: 'assets/image_destination8.png',
           rating: 4.8,
         ),
-        destinationTile(
+        const destinationTile(
           name: 'Hill Hey',
           city: 'Monaco',
           imageUrl: 'assets/image_destination10.png',
           rating: 4.7,
         ),
-        destinationTile(
+        const destinationTile(
           name: 'Payung Teduh',
           city: 'Singapore',
           imageUrl: 'assets/image_destination9.png',

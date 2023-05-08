@@ -27,7 +27,7 @@ class userService {
       return UserModel(
         id: id,
         email: snapshot['email'],
-        name: snapshot['email'],
+        name: snapshot['name'],
         hobby: snapshot['hobby'],
         balance: snapshot['balance'],
       );

@@ -25,7 +25,7 @@ class _SplashPageState extends State<SplashPage> {
             context, '/get-started', (route) => false);
       } else {
         print(user.email);
-        context.read()<AuthCubit>().getCurrentUser(user.uid);
+        context.read<AuthCubit>().getCurrentUser(user.uid);
         Navigator.pushNamedAndRemoveUntil(
             context, '/main-page', (route) => false);
       }

@@ -5,8 +5,8 @@ import 'package:airplane_app/ui/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SignUpPage extends StatelessWidget {
-  SignUpPage({super.key});
+class SignInPage extends StatelessWidget {
+  SignInPage({super.key});
   final TextEditingController nameController = TextEditingController(text: '');
   final TextEditingController emailController = TextEditingController(text: '');
   final TextEditingController passwordController =
@@ -19,7 +19,7 @@ class SignUpPage extends StatelessWidget {
       return Container(
         margin: EdgeInsets.only(top: 30),
         child: Text(
-          'Join us and get \nyour next journey',
+          'Sign in \nwith your account',
           style: blackTextStyle.copyWith(
             fontSize: 24,
             fontWeight: semiBold,
@@ -29,16 +29,6 @@ class SignUpPage extends StatelessWidget {
     }
 
     Widget inputSection() {
-      Widget nameInput() {
-        return customTextFormField(
-          title: 'Full Name',
-          hintText: 'your full name',
-          controller: nameController,
-        );
-      }
-
-      ;
-
       Widget emailInput() {
         return customTextFormField(
           title: 'Email Address',
@@ -56,15 +46,7 @@ class SignUpPage extends StatelessWidget {
         );
       }
 
-      Widget hobbyInput() {
-        return customTextFormField(
-          title: 'Hobby',
-          hintText: 'your hobby',
-          controller: hobbyController,
-        );
-      }
-
-      Widget signUpButton() {
+      Widget signInButton() {
         return Container(
           child: BlocConsumer<AuthCubit, AuthState>(
             listener: (context, state) {
@@ -88,7 +70,7 @@ class SignUpPage extends StatelessWidget {
                 );
               }
               return CustomButton(
-                title: 'Sign Up',
+                title: 'Sign In',
                 onPress: () {
                   context.read<AuthCubit>().signUp(
                       email: emailController.text,
@@ -113,25 +95,23 @@ class SignUpPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            nameInput(),
             emailInput(),
             passwordInput(),
-            hobbyInput(),
-            signUpButton(),
+            signInButton(),
           ],
         ),
       );
     }
 
-    Widget singInButton() {
+    Widget singUpButton() {
       return Container(
         margin: EdgeInsets.only(top: 50),
         child: TextButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/sign-in');
+              Navigator.pop(context);
             },
             child: Text(
-              'have a account? Sign In',
+              'don\'t account, Sign Up here',
               style: greyTextStyle.copyWith(
                 fontSize: 16,
                 fontWeight: light,
@@ -151,7 +131,7 @@ class SignUpPage extends StatelessWidget {
             title(),
             // input section
             inputSection(),
-            singInButton(),
+            singUpButton(),
           ],
         ),
       ),
