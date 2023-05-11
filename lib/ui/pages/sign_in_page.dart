@@ -7,11 +7,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignInPage extends StatelessWidget {
   SignInPage({super.key});
-  final TextEditingController nameController = TextEditingController(text: '');
+
   final TextEditingController emailController = TextEditingController(text: '');
   final TextEditingController passwordController =
       TextEditingController(text: '');
-  final TextEditingController hobbyController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -52,12 +51,12 @@ class SignInPage extends StatelessWidget {
             listener: (context, state) {
               if (state is authSucess) {
                 Navigator.pushNamedAndRemoveUntil(
-                    context, '/bonus', (route) => false);
+                    context, '/main-page', (route) => false);
               } else if (state is authFailed) {
                 ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                   backgroundColor: Colors.red,
                   content: Text(
-                    'error user sudah terdaftar',
+                    'error user belum terdaftar',
                     textAlign: TextAlign.center,
                   ),
                 ));
@@ -72,11 +71,10 @@ class SignInPage extends StatelessWidget {
               return CustomButton(
                 title: 'Sign In',
                 onPress: () {
-                  context.read<AuthCubit>().signUp(
-                      email: emailController.text,
-                      password: passwordController.text,
-                      name: nameController.text,
-                      hooby: hobbyController.text);
+                  context.read<AuthCubit>().singIn(
+                        email: emailController.text,
+                        password: passwordController.text,
+                      );
                 },
                 width: 287,
                 margin: EdgeInsets.only(top: 10),
@@ -108,7 +106,7 @@ class SignInPage extends StatelessWidget {
         margin: EdgeInsets.only(top: 50),
         child: TextButton(
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, '/sign-up');
             },
             child: Text(
               'don\'t account, Sign Up here',

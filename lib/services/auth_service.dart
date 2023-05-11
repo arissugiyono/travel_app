@@ -7,6 +7,21 @@ class AuthService {
 
   //buat future model dengan membalikkan userModel
 
+  Future<UserModel> signIn({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+          email: email, password: password);
+      UserModel user =
+          await userService().getUserById(userCredential.user!.uid);
+      return user;
+    } catch (e) {
+      throw e;
+    }
+  }
+
   Future<UserModel> signUp({
     required String email,
     required String password,

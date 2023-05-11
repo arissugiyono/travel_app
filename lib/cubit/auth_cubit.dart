@@ -1,6 +1,7 @@
 import 'package:airplane_app/models/user_model.dart';
 import 'package:airplane_app/services/auth_service.dart';
 import 'package:airplane_app/services/user_service.dart';
+// ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -8,6 +9,20 @@ part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
+
+  void singIn({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      emit(authLoading());
+      UserModel user =
+          await AuthService().signIn(email: email, password: password);
+      emit(authSucess(user));
+    } catch (e) {
+      emit(authFailed(e.toString()));
+    }
+  }
 
   void signUp(
       {required String email,

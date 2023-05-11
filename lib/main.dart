@@ -3,7 +3,6 @@ import 'package:airplane_app/cubit/pages_cubit.dart';
 import 'package:airplane_app/ui/pages/bonus_page.dart';
 import 'package:airplane_app/ui/pages/checkout_page.dart';
 import 'package:airplane_app/ui/pages/choose_seat_page.dart';
-import 'package:airplane_app/ui/pages/detail_page.dart';
 import 'package:airplane_app/ui/pages/get_started_page.dart';
 import 'package:airplane_app/ui/pages/main_page.dart';
 import 'package:airplane_app/ui/pages/sign_in_page.dart';
