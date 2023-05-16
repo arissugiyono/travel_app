@@ -16,6 +16,7 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget title() {
       return Container(
+        // ignore: prefer_const_constructors
         margin: EdgeInsets.only(top: 30),
         child: Text(
           'Sign in \nwith your account',
@@ -64,7 +65,7 @@ class SignInPage extends StatelessWidget {
             },
             builder: (context, state) {
               if (state is authLoading) {
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               }
@@ -77,7 +78,7 @@ class SignInPage extends StatelessWidget {
                       );
                 },
                 width: 287,
-                margin: EdgeInsets.only(top: 10),
+                margin: const EdgeInsets.only(top: 10),
               );
             },
           ),
@@ -85,8 +86,8 @@ class SignInPage extends StatelessWidget {
       }
 
       return Container(
-        margin: EdgeInsets.only(top: 30),
-        padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+        margin: const EdgeInsets.only(top: 30),
+        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
         decoration: BoxDecoration(
           color: kWhiteColor,
           borderRadius: BorderRadius.circular(defaultRadius),
@@ -103,7 +104,7 @@ class SignInPage extends StatelessWidget {
 
     Widget singUpButton() {
       return Container(
-        margin: EdgeInsets.only(top: 50),
+        margin: const EdgeInsets.only(top: 50),
         child: TextButton(
             onPressed: () {
               Navigator.pushNamed(context, '/sign-up');
