@@ -1,4 +1,5 @@
 import 'package:airplane_app/cubit/auth_cubit.dart';
+import 'package:airplane_app/cubit/destination_cubit.dart';
 import 'package:airplane_app/cubit/pages_cubit.dart';
 import 'package:airplane_app/ui/pages/bonus_page.dart';
 import 'package:airplane_app/ui/pages/checkout_page.dart';
@@ -29,6 +30,9 @@ class MyApp extends StatelessWidget {
           create: (context) => PagesCubit(),
         ),
         BlocProvider(create: (context) => AuthCubit()),
+        BlocProvider(
+          create: (context) => DestinationCubit(),
+        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -39,7 +43,7 @@ class MyApp extends StatelessWidget {
           '/sign-up': (context) => SignUpPage(),
           '/sign-in': (context) => SignInPage(),
           '/bonus': (context) => const BonusPage(),
-          '/main-page': (context) => const mainPage(),
+          '/main-page': (context) => const MainPage(),
           '/choose-seat-page': (context) => const chooseSeatPage(),
           '/checkout-page': (context) => const checkoutPage(),
         },

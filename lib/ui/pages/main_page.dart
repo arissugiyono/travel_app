@@ -9,8 +9,8 @@ import 'package:airplane_app/shared/theme.dart';
 import 'package:airplane_app/ui/widgets/custom_button_navigation_item.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class mainPage extends StatelessWidget {
-  const mainPage({super.key});
+class MainPage extends StatelessWidget {
+  const MainPage({Key? key});
 
   Widget buildContent(int currentIndex) {
     switch (currentIndex) {
@@ -26,7 +26,6 @@ class mainPage extends StatelessWidget {
       default:
         return homePage();
     }
-
   }
 
   Widget customButtonNavigation() {
@@ -46,11 +45,10 @@ class mainPage extends StatelessWidget {
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: const [
+          children: [
             customButtonNavigationItem(
               index: 0,
               imageUrl: 'assets/icon_home.png',
-        
             ),
             customButtonNavigationItem(
               index: 1,

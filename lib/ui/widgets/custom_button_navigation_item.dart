@@ -8,11 +8,10 @@ class customButtonNavigationItem extends StatelessWidget {
   final int index;
 
   const customButtonNavigationItem({
-    super.key,
+    Key? key,
     required this.imageUrl,
     required this.index,
-  });
-
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -31,7 +30,6 @@ class customButtonNavigationItem extends StatelessWidget {
                 ? kPrimaryColor
                 : kGreyColor,
           ),
-        
           Container(
             width: 30,
             height: 2,

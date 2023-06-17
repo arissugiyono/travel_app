@@ -3,6 +3,7 @@ import 'package:airplane_app/services/user_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
+  // ignore: prefer_final_fields
   FirebaseAuth _auth = FirebaseAuth.instance;
 
   //buat future model dengan membalikkan userModel
