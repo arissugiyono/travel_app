@@ -1,4 +1,3 @@
-
 import 'package:airplane_app/shared/theme.dart';
 import 'package:airplane_app/ui/pages/checkout_page.dart';
 import 'package:airplane_app/ui/widgets/custom_button.dart';
@@ -7,7 +6,6 @@ import 'package:flutter/material.dart';
 
 class chooseSeatPage extends StatelessWidget {
   const chooseSeatPage({super.key});
-
 
   @override
   Widget build(BuildContext context) {
@@ -164,11 +162,12 @@ class chooseSeatPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const seatItem(
-                  status: 2,
+                seatItem(
+                  id: 'A1',
+                  isAvaliable: false,
                 ),
-                const seatItem(
-                  status: 2,
+                seatItem(
+                  id: 'B1',
                 ),
                 Container(
                   width: 48,
@@ -181,11 +180,12 @@ class chooseSeatPage extends StatelessWidget {
                     ),
                   )),
                 ),
-                const seatItem(
-                  status: 0,
+                seatItem(
+                  id: 'C1',
+                  isAvaliable: false,
                 ),
-                const seatItem(
-                  status: 2,
+                seatItem(
+                  id: 'D1',
                 ),
               ],
             ),
@@ -196,11 +196,11 @@ class chooseSeatPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const seatItem(
-                  status: 0,
+                seatItem(
+                  id: 'A2',
                 ),
-                const seatItem(
-                  status: 0,
+                seatItem(
+                  id: 'B2',
                 ),
                 Container(
                   width: 48,
@@ -213,11 +213,11 @@ class chooseSeatPage extends StatelessWidget {
                     ),
                   )),
                 ),
-                const seatItem(
-                  status: 0,
+                seatItem(
+                  id: 'C2',
                 ),
-                const seatItem(
-                  status: 2,
+                seatItem(
+                  id: 'D2',
                 ),
               ],
             ),
@@ -228,11 +228,11 @@ class chooseSeatPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const seatItem(
-                  status: 1,
+                seatItem(
+                  id: 'A3',
                 ),
-                const seatItem(
-                  status: 1,
+                seatItem(
+                  id: 'B3',
                 ),
                 Container(
                   width: 48,
@@ -245,11 +245,11 @@ class chooseSeatPage extends StatelessWidget {
                     ),
                   )),
                 ),
-                const seatItem(
-                  status: 0,
+                seatItem(
+                  id: 'C3',
                 ),
-                const seatItem(
-                  status: 0,
+                seatItem(
+                  id: 'D3',
                 ),
               ],
             ),
@@ -260,11 +260,11 @@ class chooseSeatPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const seatItem(
-                  status: 0,
+                seatItem(
+                  id: 'A4',
                 ),
-                const seatItem(
-                  status: 2,
+                seatItem(
+                  id: 'B4',
                 ),
                 Container(
                   width: 48,
@@ -277,11 +277,11 @@ class chooseSeatPage extends StatelessWidget {
                     ),
                   )),
                 ),
-                const seatItem(
-                  status: 0,
+                seatItem(
+                  id: 'C4',
                 ),
-                const seatItem(
-                  status: 0,
+                seatItem(
+                  id: 'D4',
                 ),
               ],
             ),
@@ -292,11 +292,11 @@ class chooseSeatPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const seatItem(
-                  status: 0,
+                seatItem(
+                  id: 'A5',
                 ),
-                const seatItem(
-                  status: 0,
+                seatItem(
+                  id: 'B5',
                 ),
                 Container(
                   width: 48,
@@ -309,11 +309,11 @@ class chooseSeatPage extends StatelessWidget {
                     ),
                   )),
                 ),
-                const seatItem(
-                  status: 2,
+                seatItem(
+                  id: 'C5',
                 ),
-                const seatItem(
-                  status: 0,
+                seatItem(
+                  id: 'D5',
                 ),
               ],
             ),
