@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
+
 
 class SeatCubit extends Cubit<List<String>> {
   SeatCubit() : super(([]));
@@ -12,7 +12,7 @@ class SeatCubit extends Cubit<List<String>> {
       state.remove(id);
     }
     print('new state $state');
-    emit(state);
+    emit(List.from(state));
   }
 
   bool isSelected(String id) {

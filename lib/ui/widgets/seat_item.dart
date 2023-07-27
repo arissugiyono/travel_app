@@ -11,7 +11,7 @@ class seatItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isSelected = context.read<SeatCubit>().isSelected(id);
+    bool isSelected = context.watch<SeatCubit>().isSelected(id);
     imageSwitch() {
       if (!isAvaliable) {
         return kImageUnavailable;
