@@ -390,10 +390,11 @@ class chooseSeatPage extends StatelessWidget {
                       builder: (context) => checkoutPage(transactionModel(
                           destination: destination,
                           ammountOfTraveler: state.length,
-                          selectedSeat: state.join(''),
+                          selectedSeat: state.join(', '),
                           insurance: true,
                           refundable: false,
                           price: price,
+                          vat: 0.45,
                           grandTotal: price + (price * 0.45).toInt()))));
             },
             margin: EdgeInsets.only(

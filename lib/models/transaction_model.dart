@@ -9,6 +9,7 @@ class transactionModel extends Equatable {
   final bool refundable;
   final int price;
   final int grandTotal;
+  final double vat;
 
   transactionModel({
     required this.destination,
@@ -17,6 +18,7 @@ class transactionModel extends Equatable {
     this.insurance = false,
     this.refundable = false,
     this.price = 0,
+    this.vat = 0,
     this.grandTotal = 0,
   });
 
@@ -28,6 +30,7 @@ class transactionModel extends Equatable {
         insurance,
         refundable,
         price,
+        vat,
         grandTotal,
       ];
 }
