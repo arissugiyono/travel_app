@@ -9,6 +9,7 @@ class transactionModel extends Equatable {
   final bool refundable;
   final int price;
   final int grandTotal;
+  
   final double vat;
 
   transactionModel({
