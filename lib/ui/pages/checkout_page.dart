@@ -1,4 +1,5 @@
 import 'package:airplane_app/cubit/auth_cubit.dart';
+import 'package:airplane_app/cubit/transaction_cubit.dart';
 import 'package:airplane_app/models/transaction_model.dart';
 import 'package:airplane_app/shared/theme.dart';
 import 'package:airplane_app/ui/pages/success_checkout_page.dart';
@@ -312,22 +313,43 @@ class checkoutPage extends StatelessWidget {
               ),
             );
           }
-          return SizedBox();
+          return const SizedBox();
         },
       );
     }
 
     Widget payNowButton() {
-      return CustomButton(
-        title: 'Pay Now',
-        onPress: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => successCheckoutPage(),
-              ));
+      return BlocConsumer<TransactionCubit, TransactionState>(
+        listener: (context, state) {
+          if (state is TransactionSucess) {
+            Navigator.pushNamedAndRemoveUntil(
+                context, '/success', (route) => false);
+          } else if (state is TransactionFailed) {
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              backgroundColor: Colors.red,
+              content: Text(
+                'error transaksi gagal, harap coba lagi',
+                textAlign: TextAlign.center,
+              ),
+            ));
+          }
         },
-        margin: EdgeInsets.only(top: 44),
+        builder: (context, state) {
+          if (state is TransactionLoading) {
+            return Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.only(top: 44),
+              child: CircularProgressIndicator(),
+            );
+          }
+          return CustomButton(
+            title: 'Pay Now',
+            onPress: () {
+              context.read<TransactionCubit>().createTransaction(transaction);
+            },
+            margin: EdgeInsets.only(top: 44),
+          );
+        },
       );
     }
 

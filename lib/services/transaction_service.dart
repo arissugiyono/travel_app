@@ -5,7 +5,7 @@ class transactionService {
   // menambahkan untuk colectionnya
 
   CollectionReference _transactionReference =
-      FirebaseFirestore.instance.collection('transaction');
+      FirebaseFirestore.instance.collection('transactions');
 
   // metod untuk melakukan set user.
   Future<void> createTransaction(transactionModel transaction) async {
