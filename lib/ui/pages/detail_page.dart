@@ -6,7 +6,6 @@ import 'package:airplane_app/ui/widgets/photo_item.dart';
 import 'package:flutter/material.dart';
 import 'package:airplane_app/shared/theme.dart';
 import 'package:intl/intl.dart';
-import 'package:responsive_grid_list/responsive_grid_list.dart';
 import 'package:shadow_overlay/shadow_overlay.dart';
 
 class detailPage extends StatelessWidget {
@@ -46,15 +45,15 @@ class detailPage extends StatelessWidget {
             Container(
               width: double.infinity,
               height: 24,
-              margin: EdgeInsets.only(
+              margin: const EdgeInsets.only(
                 top: 40,
               ),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage('assets/icon_emblem.png'))),
             ),
             Container(
-              margin: EdgeInsets.only(
+              margin: const EdgeInsets.only(
                 top: 200,
               ),
               child: Row(
@@ -82,9 +81,9 @@ class detailPage extends StatelessWidget {
                   ),
                   Container(
                     width: 24,
-                    margin: EdgeInsets.all(2),
+                    margin: const EdgeInsets.all(2),
                     height: 24,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage('assets/icon_star.png'),
                       ),
@@ -102,11 +101,11 @@ class detailPage extends StatelessWidget {
             ),
             Container(
               width: double.infinity,
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 horizontal: 20,
                 vertical: 30,
               ),
-              margin: EdgeInsets.only(
+              margin: const EdgeInsets.only(
                 top: 20,
               ),
               decoration: BoxDecoration(
@@ -123,7 +122,7 @@ class detailPage extends StatelessWidget {
                       fontWeight: semiBold,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 6,
                   ),
                   Text(
@@ -134,7 +133,7 @@ class detailPage extends StatelessWidget {
                       height: 2,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Text(
@@ -144,17 +143,17 @@ class detailPage extends StatelessWidget {
                       fontWeight: semiBold,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 6,
                   ),
-                  Row(
+                  const Row(
                     children: [
                       photoItem(imageUrl: 'assets/image_photo1.png'),
                       photoItem(imageUrl: 'assets/image_photo2.png'),
                       photoItem(imageUrl: 'assets/image_photo3.png'),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Text(
@@ -164,10 +163,10 @@ class detailPage extends StatelessWidget {
                       fontWeight: semiBold,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Row(
+                  const Row(
                     children: [
                       interestsItem(
                         interestsName: 'Kids Park',
@@ -177,10 +176,10 @@ class detailPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Row(
+                  const Row(
                     children: [
                       interestsItem(
                         interestsName: 'City Museum',
@@ -195,7 +194,7 @@ class detailPage extends StatelessWidget {
             ),
             // NOTES: PRICE & BOOKING BUTTON
             Container(
-              margin: EdgeInsets.only(
+              margin: const EdgeInsets.only(
                 top: 30,
                 bottom: 30,
               ),
@@ -214,7 +213,7 @@ class detailPage extends StatelessWidget {
                           style: blackTextStyle.copyWith(
                               fontSize: 18, fontWeight: medium),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
                         Text(

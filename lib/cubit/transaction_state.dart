@@ -11,7 +11,15 @@ class TransactionInitial extends TransactionState {}
 
 class TransactionLoading extends TransactionState {}
 
-class TransactionSucess extends TransactionState {}
+class TransactionSucess extends TransactionState {
+  late final List<transactionModel> transactions;
+
+  TransactionSucess(this.transactions);
+
+  @override
+  // TODO: implement props
+  List<Object> get props => [transactions];
+}
 
 class TransactionFailed extends TransactionState {
   final String error;
