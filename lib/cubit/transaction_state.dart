@@ -9,12 +9,14 @@ abstract class TransactionState extends Equatable {
 
 class TransactionInitial extends TransactionState {}
 
-class TransactionLoading extends TransactionState {}
+class TransactionLoading extends TransactionState {
+  var transactions;
+}
 
-class TransactionSucess extends TransactionState {
+class TransactionSuccess extends TransactionState {
   late final List<transactionModel> transactions;
 
-  TransactionSucess(this.transactions);
+  TransactionSuccess(this.transactions);
 
   @override
   // TODO: implement props

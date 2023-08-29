@@ -320,7 +320,7 @@ class checkoutPage extends StatelessWidget {
     Widget payNowButton() {
       return BlocConsumer<TransactionCubit, TransactionState>(
         listener: (context, state) {
-          if (state is TransactionSucess) {
+          if (state is TransactionSuccess) {
             Navigator.pushNamedAndRemoveUntil(
                 context, '/success', (route) => false);
           } else if (state is TransactionFailed) {

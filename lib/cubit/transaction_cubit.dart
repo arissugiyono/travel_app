@@ -12,7 +12,7 @@ class TransactionCubit extends Cubit<TransactionState> {
     try {
       emit(TransactionLoading());
       await transactionService().createTransaction(transaction);
-      emit(TransactionSucess([]));
+      emit(TransactionSuccess([]));
     } catch (e) {
       emit(TransactionFailed(e.toString()));
     }
@@ -23,6 +23,7 @@ class TransactionCubit extends Cubit<TransactionState> {
       emit(TransactionLoading());
       List<transactionModel> transactions =
           await transactionService().fetchTransactions();
+      emit(TransactionSuccess(transactions));
     } catch (e) {
       emit(TransactionFailed(e.toString()));
     }

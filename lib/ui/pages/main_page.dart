@@ -17,7 +17,7 @@ class MainPage extends StatelessWidget {
       case 0:
         return homePage();
       case 1:
-        return transactionPage();
+        return TransactionPage();
       case 2:
         return cardPage();
       case 3:
